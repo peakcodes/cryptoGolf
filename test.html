@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="node_modules/matter-js/build/matter.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    // module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    World = Matter.World,
+    Constraint = Matter.Constraint,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint,
+    Composite = Matter.Composite
+    Composites = Matter.Composites,
+    Body = Matter.Body,
+    Bodies = Matter.Bodies;
+    Vector = Matter.Vector;
+// create an engine
+var engine = Engine.create();
+// create a renderer
+var render = Render.create({
+    element: document.body,
+    engine: engine
+});
+// create a ramp
+var ramp = Bodies.rectangle(50, 200, 200, 20, {isStatic: true, angle: Math.PI * 0.1});
+var ramp2 = Bodies.rectangle(200, 150, 100, 20, {isStatic: true, angle: Math.PI * 0.5});
+var ledge = Bodies.rectangle(650, 310, 200, 20, {isStatic: true});
+var ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
+// create circles
+var circle1 = Bodies.circle(20, 150, 20, {density: 0.2});
+var circle2 = Bodies.circle(450, 400, 20);
+// create bricks
+var brick1 = Bodies.rectangle(575, 250, 30, 20);
+var brick2 = Bodies.rectangle(575, 250, 30, 20);
+var brick3 = Bodies.rectangle(580, 250, 30, 20);
+var brick4 = Bodies.rectangle(580, 250, 30, 20);
+var brick5 = Bodies.rectangle(585, 250, 30, 20);
+var brick6 = Bodies.rectangle(585, 250, 30, 20);
+var brick7 = Bodies.rectangle(590, 250, 30, 20);
+var brick8 = Bodies.rectangle(590, 250, 30, 20);
+var brick9 = Bodies.rectangle(600, 250, 30, 20);
+var brick10 = Bodies.rectangle(600, 250, 30, 20);
+// create a rope
+    // var group = Body.nextGroup(true);
+    // console.log(group);
+    // var ropeB = Composites.stack(350, 50, 10, 1, 10, 10, function (x, y) {
+    //     return Bodies.circle(x, y, 20, { collisionFilter: { group: group } });
+    // });
+    // Composites.chain(ropeB, 0.5, 0, -0.5, 0, { stiffness: 0.8, length: 2, render: { type: 'line' } });
+    // Composite.add(ropeB, Constraint.create({
+    //     bodyB: ropeB.bodies[0],
+    //     pointB: { x: -20, y: 0 },
+    //     pointA: { x: ropeB.bodies[0].position.x, y: ropeB.bodies[0].position.y },
+    //     stiffness: 0.5
+    // }));
+// create a catapult
+group = Body.nextGroup(true);
+var stand = Bodies.rectangle(350, 490, 20, 180, {isStatic: true, collisionFilter: {group: group}});
+var catapult = Bodies.rectangle(350, 430, 320, 20, {collisionFilter: {group: group}});
+var stopper = Bodies.rectangle(450, 510, 20, 140, {isStatic: true});
+// create a wrecking ball
+var wreckingBall = Bodies.circle(350, 100, 50, {density: 0.2});
+var stand2 = Bodies.rectangle(350, 325, 20, 75);
+var options = { bodyA: wreckingBall,
+                pointB: {x: wreckingBall.position.x + 150, y: wreckingBall.position.y}};
+var constraint = Constraint.create(options);
+var bridge = Bodies.rectangle(x - 20, y, 53, 20, { 
+            collisionFilter: { group: group },
+            chamfer: 5,
+            density: 0.005,
+            frictionAir: 0.05,
+            render: {
+                fillStyle: '#575375'
+            }
+        });
+    });
+// create a constraint
+// var options = { bodyA: pinA,
+//                 bodyB: boxC,
+//                 length: 100};
+// var constraint = Constraint.create(options);
+// var options2 = {    bodyB: boxA,
+//                     pointB: { x: -40, y: 0},
+//                     pointA: { x: boxA.position.x, y: boxA.position.y}};
+// var constraint2 = Constraint.create(options2);
+var options3 = {    bodyA: catapult,
+                    pointB: Vector.clone(catapult.position),
+                    stiffness: 1,
+                    length: 0};
+var constraint3 = Constraint.create(options3);
+// create a mouse constraint
+var mouse = Mouse.create(render.canvas)
+var options = {mouse: mouse};
+var mConstraint = MouseConstraint.create(engine, options);
+// add all of the bodies to the world
+World.add(engine.world, [ramp, ramp2, ledge, stand, catapult, stopper, circle1, circle2, brick1, brick2, brick3, brick4, brick5, brick6, brick7, brick8, brick9, brick10, wreckingBall, stand2, ground]);
+World.add(engine.world, mConstraint);
+World.add(engine.world, [constraint, constraint3]);
+// run the engine
+Engine.run(engine);
+// run the renderer
+Render.run(render);
+</script>
+</html>
