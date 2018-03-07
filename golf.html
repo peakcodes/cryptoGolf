@@ -12,27 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script type="text/javascript">
-        // var request = require('request')
-        // var url = "https://api.bitfinex.com/v2"
-
-        // // request
-        // request.get(
-        //     `${url}/candles/trade:5m:tBTCUSD/hist`,
-        //     (error, response, body) => console.log(body))
-
-        // const bfx = require('bitfinex-api-node')
-        // const client = new Bfx(options).http()
-
-        // const cb = () => {}
-        // client.tracker(cb)
-
-        // // chaining:
-
-        // new Bfx(options).http().tracker()
-        // For websockets:
-
-        //     const BFX = new Bfx(options)
-        // const client = BFX.ws()
         
         var coins = ["BTC/USD", "LTC/USD", "ETH/USD", "XMR/USD", "LTC/BTC", "ETH/BTC", "XMR/BTC"];
 
@@ -55,40 +34,6 @@
                 });
         }
         pullCandleClose();
-                        // const debug = require('debug')('bfx:examples:ws2_candles')
-                        // const bfx = require('../bfx')
-
-                        // const ws = bfx.wsV2(2, {
-                        //     manageCandles: true, // enable candle dataset persistence/management
-                        //     transform: true // converts ws data arrays to Candle models (and others)
-                        // })
-
-                        // const CANDLE_KEY = 'trade:5m:tBTCUSD'
-
-                        // wsV2.on('open', () => {
-                        //     debug('open')
-                        //     ws.subscribeCandles(CANDLE_KEY)
-                        // })
-
-                        // let prevTS = null
-
-                        // // 'candles' here is an array
-                        // ws.onCandle({
-                        //     key: CANDLE_KEY
-                        // }, (candles) => {
-                        //     if (prevTS === null || candles[0].mta > prevTS) {
-                        //         const c = candles[1] // report previous candle
-
-                        //         debug(`%s %s open: %f, high: %f, low: %f, close: %f, volume: %f`,
-                        //             CANDLE_KEY, new Date(c.mta).toLocaleTimeString(),
-                        //             c.open, c.high, c.low, c.close, c.volume
-                        //         )
-                        //         console.log(candles[i]);
-
-                        //         prevTS = candles[0].mts
-                        //     }
-                        //     console.log(candles[i]);
-                        // ws.open();
     </script>
 </head>
 
