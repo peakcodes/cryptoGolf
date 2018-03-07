@@ -26,13 +26,13 @@ Expertise on cryptocurrencies was provided by Tim Hill.<br>
 Our project is hosted at: https://xhandler.github.io/cryptoGolf/<br>
 
 # Contributors
-Afolabi Akingbe - research, back-end;<br>
-  Github: https://github.com/folaakingbe<br>
-Chandler Dibble - project lead/organizer; research, back-end;<br>
+__Afolabi Akingbe__ - research, back-end;<br>
+Github: https://github.com/folaakingbe<br>
+__Chandler Dibble__- project lead/organizer; research, back-end;<br>
   Github: https://github.com/Xhandler<br>
-Tim Hill - crypto expert; research, back-end;<br>
+__Tim Hill__ - crypto expert; research, back-end;<br>
   Github: https://github.com/peakcodes<br>
-Daniel Mace - project historian/note-taker; research, back-end;<br>
+__Daniel Mace__ - project historian/note-taker; research, back-end;<br>
   Github: https://github.com/Daniibooii<br>
 
 ## How to Use
