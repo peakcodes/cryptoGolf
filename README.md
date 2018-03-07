@@ -4,8 +4,8 @@
 This project represents a group effort to create a physics-based golf game, with a twist:<br>
 the terrain is generated based on the ups and downs of the cryptocurrency market.<br>
 
-The project was conceived and organized by Chandler Dibble.<br>
-The game was developed by a four-person team over one week.<br>
+The project was conceived and organized by Chandler Dibble,<br>
+and developed by a four-person team over one week.<br>
 The total time spent developing our project, including time spent learning new tools, is estimated at 120+ hours.<br>
 
 We primarily utilized Javascript with Matter.js.<br>
