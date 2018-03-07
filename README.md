@@ -30,7 +30,7 @@ __Afolabi Akingbe__ - research, back-end;<br>
 Github: https://github.com/folaakingbe<br>
 __Chandler Dibble__- project lead/organizer; research, back-end;<br>
   Github: https://github.com/Xhandler<br>
-__Tim Hill__ - crypto expert; research, back-end;<br>
+__Tim Hill__ - lead on wireframe and user-flow; crypto expert; research, back-end;<br>
   Github: https://github.com/peakcodes<br>
 __Daniel Mace__ - project historian/note-taker; research, back-end;<br>
   Github: https://github.com/Daniibooii<br>
