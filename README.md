@@ -8,27 +8,29 @@ The project was conceived and organized by Chandler Dibble;<br>
 it was developed by a four-person team over one week.<br>
 The total time spent developing our project, including time spent learning new tools, is estimated at 120+ hours.<br>
 
-We primarily utilized Javascript with Matter.js.<br>
+We primarily utilized Javascript with Node, JQuery, Matter.js, and Express.js.<br>
 HTML and CSS were deliberately de-emphasized to allow us to generate our images, shapes, etc. with Javascript.<br>
 This is reflected in contributors' roles all including "back-end" work.<br>
-[] API was utilized.<br>
+Bitfinex's API was utilized to provide our cryptocurrency exchange data, with which we generated our terrain.<br>
+Heroku was also utilized for the first time by group members, as previous projects were hosted solely on Github Pages.<br>
 Significant time was devoted to learning Matter.js and implementing ES6, with which we were unfamiliar but eager to practice.<br>
 
 Internally, we needed to generate a basic world and physics-based parameters for our game.<br>
 Objects such as a golf ball were created and assigned values to allow their proper interaction.<br>
 Functions were written to generate our objects, cause them to interact, and influence the manner in which they interacted.<br>
-The [] API was called in order to generate the ground on which golf was played.<br>
+The bitfinex API was called in order to generate the ground on which golf was played.<br>
 
 Each project member spent time learning how to implement Matter.js and ES6.<br>
 [additional info on what we do].<br>
 Expertise on cryptocurrencies was provided by Tim Hill.<br>
 
-Our project is hosted at: https://xhandler.github.io/cryptoGolf/<br>
+Our project is hosted through Github Pages at: https://xhandler.github.io/cryptoGolf/,<br>
+and through Heroku at: [add when hosted]<br>
 
 # Contributors
-__Afolabi Akingbe__ - research, back-end;<br>
+__Afolabi Akingbe__ - math MVP; research, back-end;<br>
 Github: https://github.com/folaakingbe<br>
-__Chandler Dibble__- project lead/organizer; research, back-end;<br>
+__Chandler Dibble__- project lead/organizer; research, back-end/front-end;<br>
   Github: https://github.com/Xhandler<br>
 __Tim Hill__ - lead on wireframe and user-flow; crypto expert; research, back-end;<br>
   Github: https://github.com/peakcodes<br>
@@ -41,7 +43,7 @@ Then, he or she should open the index.html file in a browser of their choice.<br
 The user will then play through a pretty straight-forward game of golf, with a few twists.<br>
 
 To start, the user will [].<br>
-It might also help to pray for a stable [week] in the crypto markets.<br>
+It might also help to pray for a stable month in the crypto markets.<br>
 From here, just swing away!<br>
 
 ## Notes
@@ -56,7 +58,14 @@ Desert Golfing served as our initial inspiration;<br>
 the idea of combining this with cryptcurrency was provided by Tim Hill.<br>
 
 ## Resources
-http://desertgolfing.captain-games.com/<br>
-[list repo]<br>
-[list repo]<br>
-[list cyrpto API]
+Project Group's One Drive: https://onedrive.live.com/view.aspx?resid=A24E366977AFCFDC!951&app=OneNote&authkey=!ALdVeX0u2AWWcC0<br>
+Matter.js Package: https://www.npmjs.com/package/matter-js<br>
+Matter.js Info/Tutorials: http://brm.io/matter-js/<br>
+Express.js Package: https://www.npmjs.com/package/express<br>
+Express.js Info/Tutorials: https://expressjs.com/<br>
+Heroku Deployment Guide: https://github.com/nielsenjared/node-express-heroku-deployment<br>
+
+Desert Golf: http://desertgolfing.captain-games.com/<br>
+Many Golf Main Site: https://manygolf.club/<br>
+Many Golf Repo: https://github.com/thomasboyt/manygolf<br>
+Bitfinex Main Site: https://www.bitfinex.com/<br>

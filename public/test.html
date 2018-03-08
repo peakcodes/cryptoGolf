@@ -9,7 +9,18 @@
     <script src="node_modules/matter-js/build/matter.js"></script>
 </head>
 <body>
-    
+
+<!-- POSSIBLE INTRO PAGE HTML BELOW; can switch out video if desired -->
+
+<!--  <div id="rainingBitcoins" style="position: fixed; margin-top: -8px; margin-left: -8px; z-index: 99; width: 100%; height: 100%" > -->
+<!--  <iframe frameborder="0" height="100%" width="100%" -->
+<!--  src="https://youtube.com/embed/d99dLbM4eGY?autoplay=1&controls=0&showinfo=0&autohide=1"> -->
+<!--  </iframe> -->
+<!--  </div> -->
+
+<!-- JS at bottom of page, below </script> -->
+
+
 </body>
 <script>
     // module aliases
@@ -100,5 +111,36 @@ World.add(engine.world, [constraint, constraint3]);
 Engine.run(engine);
 // run the renderer
 Render.run(render);
+
+// CODE TO USE IF WE DECIDE TO HAVE A FANCY DISAPPEARING INTRO //
+// makes video/div disappear after 9 seconds, the length of the video //
+// another way to do this = change z-index //
+
+// $("#rainingBitcoins").delay(9000).fadeOut(300);
+
+
+// was unable to DL the video; can try again tonight at home... wi-fi here man...//
+// function below prevents user from clicking during Youtube video play, which would pause it //
+
+//function videoTimer() {
+// disable clicking //
+//events._click = events.click;
+//events.click = null;
+  // restore clicking //
+  //setTimeout(function(){
+  //  events.click = events._click;
+  //  events._click = null;
+//  },  9000);
+//};
+
+//videoTimer()
+
+
+
+
+
+
 </script>
+
+
 </html>
