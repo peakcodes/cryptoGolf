@@ -8,7 +8,7 @@ The project was conceived and organized by Chandler Dibble;<br>
 it was developed by a four-person team over one week.<br>
 The total time spent developing our project, including time spent learning new tools, is estimated at 120+ hours.<br>
 
-We primarily utilized Javascript with Matter.js, Express.js, and Canvas.js.<br>
+We primarily utilized Javascript with Matter.js and Express.js.<br>
 HTML and CSS were deliberately de-emphasized to allow us to generate our images, shapes, etc. with Javascript.<br>
 This is reflected in contributors' roles all including "back-end" work.<br>
 Bitfinex's API was utilized to provide our cryptocurrency exchange data, with which we generated our terrain.<br>
@@ -61,8 +61,6 @@ the idea of combining this with cryptcurrency was provided by Tim Hill.<br>
 https://www.npmjs.com/package/matter-js<br>
 http://brm.io/matter-js/<br>
 https://expressjs.com/<br>
-https://www.npmjs.com/package/canvasjs<br>
-https://canvasjs.com/<br>
 https://github.com/nielsenjared/node-express-heroku-deployment<br>
 
 http://desertgolfing.captain-games.com/<br>
