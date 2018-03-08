@@ -30,7 +30,7 @@ and through Heroku at: [add when hosted]<br>
 # Contributors
 __Afolabi Akingbe__ - math MVP; research, back-end;<br>
 Github: https://github.com/folaakingbe<br>
-__Chandler Dibble__- project lead/organizer; research, back-end;<br>
+__Chandler Dibble__- project lead/organizer; research, back-end/front-end;<br>
   Github: https://github.com/Xhandler<br>
 __Tim Hill__ - lead on wireframe and user-flow; crypto expert; research, back-end;<br>
   Github: https://github.com/peakcodes<br>
