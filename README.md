@@ -11,13 +11,13 @@ The total time spent developing our project, including time spent learning new t
 We primarily utilized Javascript with Matter.js.<br>
 HTML and CSS were deliberately de-emphasized to allow us to generate our images, shapes, etc. with Javascript.<br>
 This is reflected in contributors' roles all including "back-end" work.<br>
-[] API was utilized.<br>
+Bitfinex's API was utilized.<br>
 Significant time was devoted to learning Matter.js and implementing ES6, with which we were unfamiliar but eager to practice.<br>
 
 Internally, we needed to generate a basic world and physics-based parameters for our game.<br>
 Objects such as a golf ball were created and assigned values to allow their proper interaction.<br>
 Functions were written to generate our objects, cause them to interact, and influence the manner in which they interacted.<br>
-The [] API was called in order to generate the ground on which golf was played.<br>
+The bitfinex API was called in order to generate the ground on which golf was played.<br>
 
 Each project member spent time learning how to implement Matter.js and ES6.<br>
 [additional info on what we do].<br>
@@ -26,7 +26,7 @@ Expertise on cryptocurrencies was provided by Tim Hill.<br>
 Our project is hosted at: https://xhandler.github.io/cryptoGolf/<br>
 
 # Contributors
-__Afolabi Akingbe__ - research, back-end;<br>
+__Afolabi Akingbe__ - math MVP; research, back-end;<br>
 Github: https://github.com/folaakingbe<br>
 __Chandler Dibble__- project lead/organizer; research, back-end;<br>
   Github: https://github.com/Xhandler<br>
@@ -41,7 +41,7 @@ Then, he or she should open the index.html file in a browser of their choice.<br
 The user will then play through a pretty straight-forward game of golf, with a few twists.<br>
 
 To start, the user will [].<br>
-It might also help to pray for a stable [week] in the crypto markets.<br>
+It might also help to pray for a stable month in the crypto markets.<br>
 From here, just swing away!<br>
 
 ## Notes
@@ -57,6 +57,6 @@ the idea of combining this with cryptcurrency was provided by Tim Hill.<br>
 
 ## Resources
 http://desertgolfing.captain-games.com/<br>
-[list repo]<br>
-[list repo]<br>
-[list cyrpto API]
+https://manygolf.club/<br>
+https://github.com/thomasboyt/manygolf<br>
+https://www.bitfinex.com/<br>
