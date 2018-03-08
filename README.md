@@ -58,12 +58,14 @@ Desert Golfing served as our initial inspiration;<br>
 the idea of combining this with cryptcurrency was provided by Tim Hill.<br>
 
 ## Resources
-https://www.npmjs.com/package/matter-js<br>
-http://brm.io/matter-js/<br>
-https://expressjs.com/<br>
-https://github.com/nielsenjared/node-express-heroku-deployment<br>
+Project Group's One Drive: https://onedrive.live.com/view.aspx?resid=A24E366977AFCFDC!951&app=OneNote&authkey=!ALdVeX0u2AWWcC0<br>
+Matter.js Package: https://www.npmjs.com/package/matter-js<br>
+Matter.js Info/Tutorials: http://brm.io/matter-js/<br>
+Express.js Package: https://www.npmjs.com/package/express<br>
+Express.js Info/Tutorials: https://expressjs.com/<br>
+Heroku Deployment Guide: https://github.com/nielsenjared/node-express-heroku-deployment<br>
 
-http://desertgolfing.captain-games.com/<br>
-https://manygolf.club/<br>
-https://github.com/thomasboyt/manygolf<br>
-https://www.bitfinex.com/<br>
+Desert Golf: http://desertgolfing.captain-games.com/<br>
+Many Golf Main Site: https://manygolf.club/<br>
+Many Golf Repo: https://github.com/thomasboyt/manygolf<br>
+Bitfinex Main Site: https://www.bitfinex.com/<br>
