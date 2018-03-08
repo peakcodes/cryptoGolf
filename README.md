@@ -8,10 +8,11 @@ The project was conceived and organized by Chandler Dibble;<br>
 it was developed by a four-person team over one week.<br>
 The total time spent developing our project, including time spent learning new tools, is estimated at 120+ hours.<br>
 
-We primarily utilized Javascript with Matter.js.<br>
+We primarily utilized Javascript with Matter.js, Express.js, and Canvas.js.<br>
 HTML and CSS were deliberately de-emphasized to allow us to generate our images, shapes, etc. with Javascript.<br>
 This is reflected in contributors' roles all including "back-end" work.<br>
 Bitfinex's API was utilized.<br>
+Heroku was also utilized for the first time by group members, as previous projects were hosted solely on Github Pages.<br>
 Significant time was devoted to learning Matter.js and implementing ES6, with which we were unfamiliar but eager to practice.<br>
 
 Internally, we needed to generate a basic world and physics-based parameters for our game.<br>
@@ -23,7 +24,8 @@ Each project member spent time learning how to implement Matter.js and ES6.<br>
 [additional info on what we do].<br>
 Expertise on cryptocurrencies was provided by Tim Hill.<br>
 
-Our project is hosted at: https://xhandler.github.io/cryptoGolf/<br>
+Our project is hosted through Github Pages at: https://xhandler.github.io/cryptoGolf/,<br>
+and through Heroku at: [add when hosted]<br>
 
 # Contributors
 __Afolabi Akingbe__ - math MVP; research, back-end;<br>
@@ -56,6 +58,13 @@ Desert Golfing served as our initial inspiration;<br>
 the idea of combining this with cryptcurrency was provided by Tim Hill.<br>
 
 ## Resources
+https://www.npmjs.com/package/matter-js<br>
+http://brm.io/matter-js/<br>
+https://expressjs.com/<br>
+https://www.npmjs.com/package/canvasjs<br>
+https://canvasjs.com/<br>
+https://github.com/nielsenjared/node-express-heroku-deployment<br>
+
 http://desertgolfing.captain-games.com/<br>
 https://manygolf.club/<br>
 https://github.com/thomasboyt/manygolf<br>
