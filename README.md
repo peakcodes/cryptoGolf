@@ -11,7 +11,7 @@ The total time spent developing our project, including time spent learning new t
 We primarily utilized Javascript with Matter.js, Express.js, and Canvas.js.<br>
 HTML and CSS were deliberately de-emphasized to allow us to generate our images, shapes, etc. with Javascript.<br>
 This is reflected in contributors' roles all including "back-end" work.<br>
-Bitfinex's API was utilized.<br>
+Bitfinex's API was utilized to provide our cryptocurrency exchange data, with which we generated our terrain.<br>
 Heroku was also utilized for the first time by group members, as previous projects were hosted solely on Github Pages.<br>
 Significant time was devoted to learning Matter.js and implementing ES6, with which we were unfamiliar but eager to practice.<br>
 
