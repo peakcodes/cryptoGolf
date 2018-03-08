@@ -1,120 +1,121 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-    <script src="node_modules/matter-js/build/matter.js"></script>
-    <script src="node_modules/bitfinex-api-node/examples/ws2/candles.js"></script>
+    <script src="../node_modules/matter-js/build/matter.js"></script>
+    <script src="../node_modules/bitfinex-api-node/examples/ws2/candles.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="node_modules/poly-decomp/build/decomp.js" type="text/javascript"></script>    
+    <script src="../node_modules/matter-js/build/matter.js"></script>
+    <script type="text/javascript">
+        var coins = ["BTC/USD", "LTC/USD", "ETH/USD", "XMR/USD", "LTC/BTC", "ETH/BTC", "XMR/BTC"];
+        var tFrame = ["1m", "1h", "1D" ]
+    
+        function pullCandleClose() {
+    
+            // var coin = $(this).attr("data-name");
+            var coin = '';
+            var points = [];
+            var queryURL = "https://api.bitfinex.com/v2/candles/trade:1D:tBTCUSD/hist";
+            console.log(queryURL)
+    
+            // Creating an AJAX call for the specific candle button being clicked
+            $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                        $("#coin-data").text(JSON.stringify(response));
+                        console.log(response);
+                        for (i = 0; i <= 30; i++) {
+                            console.log(response[i][2]);
+                            console.log()
+                            points.push(response[i][2]);
+                        }
+                        var coinObject = {
+    
+                            coinFrame: tFrame,
+                            coinPoints: points,
+                            coinName: coins,
+                        }
+                        $.post("/api/coins", coinObject, function (response) {
+                        console.log(response);
+                        });
+                    })
+                }
+                    pullCandleClose();
+    </script>
 
-   
 </head>
 
 <body>
     <a href='/index'>Go To Index</a>
-    <div id="coin-data"></div>
 </body>
-<script type="text/javascript">
-    var coins = ["BTC/USD", "LTC/USD", "ETH/USD", "XMR/USD", "LTC/BTC", "ETH/BTC", "XMR/BTC"];
-    var tFrame = ["1m", "1h", "1D" ]
-
-    function pullCandleClose() {
-
-        // var coin = $(this).attr("data-name");
-        var coin = '';
-        var points = [];
-        var queryURL = "https://api.bitfinex.com/v2/candles/trade:1D:tBTCUSD/hist";
-        console.log(queryURL)
-
-        // Creating an AJAX call for the specific candle button being clicked
-        $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
-                    $("#coin-data").text(JSON.stringify(response));
-                    console.log(response);
-                    for (i = 0; i <= 30; i++) {
-                        console.log(response[i][2]);
-                        console.log()
-                        points.push(response[i][2]);
-                    }
-                    var coinObject = {
-
-                        coinFrame: tFrame,
-                        coinPoints: points,
-                        coinName: coins,
-                    }
-                    $.post("/api/coins", coinObject, function (response) {
-                    console.log(response);
-                    });
-                })
-            }
-                pullCandleClose();
-// // module aliases
-// var Engine = Matter.Engine,
-// Render = Matter.Render,
-// World = Matter.World,
-// Constraint = Matter.Constraint,
-// Mouse = Matter.Mouse,
-// MouseConstraint = Matter.MouseConstraint,
-// Composite = Matter.Composite
-// Composites = Matter.Composites,
-// Body = Matter.Body,
-// Bodies = Matter.Bodies;
-// Vector = Matter.Vector;
-// Vertices = Matter.Vertices;
-
-// // create an engine
-// var engine = Engine.create();
-// // create a renderer
-// var render = Render.create({
-// element: document.body,
-// engine: engine
-// });
-// // var path = "10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0";
-// // path = path.split(" ");
-// // for (var i = 0; i < path.length; i++) {
-// //     path[i] = parseInt(path[i]);
-// // }
-// var path = []
-// console.log(path);
-// var minValue = Math.min(...path);
-// console.log(minValue);
-// for (var i = 0; i < path.length; i++) {
-// path[i] = path[i] - minValue;
-// }
-// console.log(path);
-// var maxValue = Math.max(...path);
-// var lines = [];
-// for (var i = 0; i < path.length-1; i++) {
-// var x = (i + (i + 1))/2 * 5;    //*5 only used to span graph
-// var y = 600 - ((path[i] + path[i+1])/2 * (500/maxValue)); //scaling to fit area
-// console.log(y);
-// var adjacent = 1 * 5;
-// var opposite = (path[i+1] - path[i]) * (500/maxValue);
-// var angle = Math.atan(opposite / adjacent);
-// console.log(angle);
-// var line = Bodies.rectangle(x, y, Math.sqrt(opposite**2 + adjacent**2), 1, { isStatic: true, angle: -angle });
-// // World.add(engine.world, line);
-// lines.push(line);
-// }
-// World.add(engine.world, lines);
-// console.log(lines);
-// // var terrain = Vertices.fromPath(path);
-// // console.log(terrain);
-// // var course = Bodies.fromVertices(400, 200, terrain, {isStatic: true});
-// // var boxA = Bodies.rectangle(200, 200, 80, 80, {isStatic: true});
-// var trap = Bodies.trapezoid(180, 10, 80, 80, 1)
-// // console.log(course);
-// console.log("this");
-// World.add(engine.world, [ trap]);
-// // run the engine
-// Engine.run(engine);
-// // run the renderer
-// Render.run(render);
-</script>
+<script>
+ // module aliases
+ var Engine = Matter.Engine,
+            Render = Matter.Render,
+            World = Matter.World,
+            Constraint = Matter.Constraint,
+            Mouse = Matter.Mouse,
+            MouseConstraint = Matter.MouseConstraint,
+            Composite = Matter.Composite
+            Composites = Matter.Composites,
+            Body = Matter.Body,
+            Bodies = Matter.Bodies;
+            Vector = Matter.Vector;
+            Vertices = Matter.Vertices;
+            
+        // create an engine
+        var engine = Engine.create();
+        // create a renderer
+        var render = Render.create({
+            element: document.body,
+            engine: engine
+        });
+        // var path = "10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0";
+        // path = path.split(" ");
+        // for (var i = 0; i < path.length; i++) {
+        //     path[i] = parseInt(path[i]);
+        // }
+        var path = []
+        console.log(path);
+        var minValue = Math.min(...path);
+        console.log(minValue);
+        for (var i = 0; i < path.length; i++) {
+            path[i] = path[i] - minValue;
+        }
+        console.log(path);
+        var maxValue = Math.max(...path);
+        var lines = [];
+        for (var i = 0; i < path.length-1; i++) {
+            var x = (i + (i + 1))/2 * 30;    //*5 only used to span graph
+            var y = 600 - ((path[i] + path[i+1])/2 * (500/maxValue)); //scaling to fit area
+            console.log(y);
+            var adjacent = 1 * 30;
+            var opposite = (path[i+1] - path[i]) * (500/maxValue);
+            var angle = Math.atan(opposite / adjacent);
+            console.log(angle);
+            var line = Bodies.rectangle(x, y, Math.sqrt(opposite**2 + adjacent**2), 1, { isStatic: true, angle: -angle });
+            // World.add(engine.world, line);
+            lines.push(line);
+        }
+        World.add(engine.world, lines);
+        console.log(lines);
+        // var terrain = Vertices.fromPath(path);
+        // console.log(terrain);
+        // var course = Bodies.fromVertices(400, 200, terrain, {isStatic: true});
+        // var boxA = Bodies.rectangle(200, 200, 80, 80, {isStatic: true});
+        var trap = Bodies.trapezoid(180, 10, 80, 80, 1)
+        // console.log(course);
+        console.log("this");
+        World.add(engine.world, [ trap]);
+        // run the engine
+        Engine.run(engine);
+        // run the renderer
+        Render.run(render);
+        </script>
 </html>
