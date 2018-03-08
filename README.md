@@ -13,38 +13,38 @@ HTML and CSS were deliberately de-emphasized to allow us to generate our images,
 This is reflected in contributors' roles all including "back-end" work.<br>
 Bitfinex's API was utilized to provide our cryptocurrency exchange data, with which we generated our terrain.<br>
 Heroku was also utilized for the first time by group members, as previous projects were hosted solely on Github Pages.<br>
-Significant time was devoted to learning Matter.js and implementing ES6, with which we were unfamiliar but eager to practice.<br>
+Significant time was devoted to learning Matter.js.<br>
 
 Internally, we needed to generate a basic world and physics-based parameters for our game.<br>
 Objects such as a golf ball were created and assigned values to allow their proper interaction.<br>
 Functions were written to generate our objects, cause them to interact, and influence the manner in which they interacted.<br>
-The bitfinex API was called in order to generate the ground on which golf was played.<br>
-
-Each project member spent time learning how to implement Matter.js and ES6.<br>
-[additional info on what we do].<br>
+The Bitfinex API was called in order to generate the ground on which golf was played.<br>
+Each project member spent time learning how to implement Matter.js.<br>
 Expertise on cryptocurrencies was provided by Tim Hill.<br>
 
 Our project is hosted through Github Pages at: https://xhandler.github.io/cryptoGolf/,<br>
-and through Heroku at: [add when hosted]<br>
+and through Heroku at: <br>
 
 # Contributors
-__Afolabi Akingbe__ - math MVP; research, back-end;<br>
+__Afolabi Akingbe__ - math MVP/genius; research, back-end;<br>
 Github: https://github.com/folaakingbe<br>
 __Chandler Dibble__- project lead/organizer; research, back-end/front-end;<br>
   Github: https://github.com/Xhandler<br>
 __Tim Hill__ - lead on wireframe and user-flow; crypto expert; research, back-end;<br>
   Github: https://github.com/peakcodes<br>
-__Daniel Mace__ - project historian/note-taker; research, back-end;<br>
+__Daniel Mace__ - project historian/note-taker; research, back-end/front-end;<br>
   Github: https://github.com/Daniibooii<br>
 
 ## How to Use
 The user will need to clone a copy of our repo.<br>
 Then, he or she should open the index.html file in a browser of their choice.<br>
-The user will then play through a pretty straight-forward game of golf, with a few twists.<br>
+The user will then play through a game of golf, with a few twists.<br>
 
-To start, the user will [].<br>
-It might also help to pray for a stable month in the crypto markets.<br>
-From here, just swing away!<br>
+To start, the user will select their favorite cryptocurrencies.<br>
+This will generate the ground on which the game is played;<br>
+it might help to pray for a stable day in the crypto markets!<br>
+Then, a ball will generate for the user to hit.<br>
+From here, just aim for the hole, and swing away!<br>
 
 ## Notes
 Our initial project idea was to create a Rube Goldberg game;<br>
@@ -55,7 +55,7 @@ Future work on rubegoldberg, collaborative or independent, is possible.<br>
 
 ## Inspirations
 Desert Golfing served as our initial inspiration;<br>
-the idea of combining this with cryptcurrency was provided by Tim Hill.<br>
+the idea of combining this with cryptocurrency was provided by Tim Hill.<br>
 
 ## Resources
 Project Group's One Drive: https://onedrive.live.com/view.aspx?resid=A24E366977AFCFDC!951&app=OneNote&authkey=!ALdVeX0u2AWWcC0<br>
