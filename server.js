@@ -10,7 +10,7 @@ var PORT = process.env.PORT || 3000;
 //
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(express.static('./node_modules'));
 // requiring function and passing app through as an argumentter
 require('./routing/apiRoutes.js')(app);
 require('./routing/htmlRoutes.js')(app);

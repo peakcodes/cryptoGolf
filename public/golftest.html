@@ -40,7 +40,37 @@ var render = Render.create({
 // for (var i = 0; i < path.length; i++) {
 //     path[i] = parseInt(path[i]);
 // }
-var path = []
+var path = [9741.6,
+ 10720,
+ 11402,
+ 11500,
+ 11454.95955159,
+ 11024,
+ 10908,
+ 10315,
+ 10582,
+ 10320,
+ 9583,
+ 9666.3,
+ 10144,
+ 9826.5,
+ 10450,
+ 11211,
+ 11172,
+ 10400,
+ 11062,
+ 10162,
+ 9996,
+ 9455.5,
+ 8511.6,
+ 8902.9,
+ 8069.3,
+ 8563,
+ 8678.1,
+ 8239.7,
+ 7586.9,
+ 7678.8,
+ 6946.6]
 console.log(path);
 var minValue = Math.min(...path);
 console.log(minValue);
@@ -52,10 +82,10 @@ var maxValue = Math.max(...path);
 var lines = [];
 for (var i = 0; i < path.length-1; i++) {
     var x = (i + (i + 1))/2 * 30;    //*5 only used to span graph
-    var y = 600 - ((path[i] + path[i+1])/2 * (500/maxValue)); //scaling to fit area
+    var y = 600 - ((path[i] + path[i+1])/2 * (350/maxValue)); //scaling to fit area
     console.log(y);
     var adjacent = 1 * 30;
-    var opposite = (path[i+1] - path[i]) * (500/maxValue);
+    var opposite = (path[i+1] - path[i]) * (350/maxValue);
     var angle = Math.atan(opposite / adjacent);
     console.log(angle);
     var line = Bodies.rectangle(x, y, Math.sqrt(opposite**2 + adjacent**2), 1, { isStatic: true, angle: -angle });
