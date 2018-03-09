@@ -7,12 +7,21 @@ let points = [];
 
 const getCoin = () => {
 	document.getElementById("btc").addEventListener("click", () => {
+		document.getElementById("btc").style.background = "grey";
+		document.getElementById("eth").style.background = "deepskyblue";
+		document.getElementById("ltc").style.background = "deepskyblue";
 		return coin = coins[0];
 	});
 	document.getElementById("ltc").addEventListener("click", () => {
+		document.getElementById("ltc").style.background = "grey";
+		document.getElementById("eth").style.background = "deepskyblue";
+		document.getElementById("btc").style.background = "deepskyblue";
 		return coin = coins[1];
 	});
 	document.getElementById("eth").addEventListener("click", () => {
+		document.getElementById("eth").style.background = "grey";
+		document.getElementById("ltc").style.background = "deepskyblue";
+		document.getElementById("btc").style.background = "deepskyblue";
 		return coin = coins[2];
 	});
 	document.getElementById("startBtn").addEventListener("click", () => {
@@ -59,11 +68,7 @@ const golf = async () => {
 
 	const pullCandleClose = async () => {
 
-<<<<<<< HEAD
 		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1M:t"+coin+"/hist";
-=======
-		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1D:tLTCUSD/hist";
->>>>>>> 5cd9f14a8a2a21fd562ada6ff646912cfc5587e3
 		let response = await fetch(queryURL);
 		let graphData = await response.json();
 
