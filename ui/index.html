@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <script src="" charset="utf-8"></script>
+  <script src="../game.js" charset="utf-8"></script>
   <link rel="stylesheet" href="../style.css">
   <title></title>
 </head>
@@ -18,22 +18,7 @@
     <a href="/golf" class="btn"><button id="startBtn"></button></a>
   </div>
   <script type="text/javascript">
-    let coin = null;
-    const listener = () => {
-      document.getElementById("btc").addEventListener("click", () => {
-        coin = "BTCUSD"
-        console.log(coin);
-      });
-      document.getElementById("ltc").addEventListener("click", () => {
-        coin = "LTCUSD"
-        console.log(coin);
-      });
-      document.getElementById("eth").addEventListener("click", () => {
-        coin = "ETHUSD"
-        console.log(coin);
-      });
-    };
-    listener();
+    getCoin();
   </script>
 </body>
 

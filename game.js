@@ -1,5 +1,26 @@
 'use strict';
 
+const coins = ["BTCUSD", "LTCUSD", "ETHUSD", "XMRUSD", "LTCBTC", "ETHBTC", "XMRBTC"];
+const tFrame = ["1m", "1h", "1D"];
+let coin = null;
+let points = [];
+
+const getCoin = () => {
+	document.getElementById("btc").addEventListener("click", () => {
+		coin = coins[0];
+		console.log(coin);
+	});
+	document.getElementById("ltc").addEventListener("click", () => {
+		coin = coins[1];
+		console.log(coin);
+	});
+	document.getElementById("eth").addEventListener("click", () => {
+		coin = coins[2];
+		console.log(coin);
+	});
+}
+
+
 const golf = async () => {
 
 	// module aliases
@@ -25,10 +46,6 @@ const golf = async () => {
 		element: document.body,
 		engine: engine
 	});
-	const coins = ["BTCUSD", "LTCUSD", "ETHUSD", "XMRUSD", "LTCBTC", "ETHBTC", "XMRBTC"];
-	const tFrame = ["1m", "1h", "1D"];
-	let coin = null;
-	let points = [];
 
 	const pullCandleClose = async () => {
 
@@ -76,8 +93,6 @@ const golf = async () => {
 
 
 	let ball = Bodies.circle(40, 20, 30);
-	// console.log(course);
-	// console.log("this");
 	World.add(engine.world, lines);
 	World.add(engine.world, ball);
 	// run the engine
@@ -85,4 +100,3 @@ const golf = async () => {
 	// run the renderer
 	Render.run(render);
 };
-golf();
