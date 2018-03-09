@@ -40,14 +40,13 @@ const golf = async () => {
 		Body = Matter.Body,
 		Bodies = Matter.Bodies,
 		Vector = Matter.Vector,
-		Vertices = Matter.Vertices;
+		Vertices = Matter.Vertices,
+		Events = Matter.Events;
 
 	// create an engine
 	const engine = Engine.create();
 	// THIS RENDERS OUR CANVAS
 	const render = Render.create({
-		width: 1200,
-		height: 800,
 		element: document.body,
 		engine: engine,
 		options: { 
