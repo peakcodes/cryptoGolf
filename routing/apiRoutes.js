@@ -8,9 +8,9 @@ app.get('/api/coins', function(req, res){
 })
 
 app.post('/api/coins', function(req, res){
-    var coin = req.body 
+    var coin = req.body;
     // var score = req.body.score
-    points.push(coin)
+    points[0].push(coin);
 })
 }
 

@@ -6,51 +6,45 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../node_modules/matter-js/build/matter.js"></script>
-    <!-- <script src="../node_modules/bitfinex-api-node/examples/ws2/candles.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../node_modules/bitfinex-api-node/examples/ws2/candles.js"></script>
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-    <script src="./poly-decomp/build/decomp.js" type="text/javascript"></script>    
+    <script src="./poly-decomp/build/decomp.js" type="text/javascript"></script>
     <script src="./matter-js/build/matter.js"></script>
     <script type="text/javascript">
         var coins = ["BTC/USD", "LTC/USD", "ETH/USD", "XMR/USD", "LTC/BTC", "ETH/BTC", "XMR/BTC"];
-        var tFrame = ["1m", "1h", "1D" ]
-    
+        var tFrame = ["1m", "1h", "1D" ];
         function pullCandleClose() {
-    
-            // var coin = $(this).attr("data-name");
             var coin = '';
             var points = [];
             var queryURL = "https://api.bitfinex.com/v2/candles/trade:1D:tBTCUSD/hist";
-            console.log(queryURL)
-    
-            // Creating an AJAX call for the specific candle button being clicked
             $.ajax({
                     url: queryURL,
                     method: "GET"
                 }).then(function (response) {
                         $("#coin-data").text(JSON.stringify(response));
-                        console.log(response);
-                        for (i = 0; i <= 30; i++) {
-                            console.log(response[i][2]);
-                            console.log()
-                            points.push(response[i][2]);
+                        // console.log(response);
+                        for ( i = 0; i <= 30; i++) {
+                          for (j = 0; j <= 30; j++){
+
+                            // console.log(response[i][j]);
+                            points.push(response[i][j]);
+
+                          }
                         }
-                        var coinObject = {
-    
-                            coinFrame: tFrame,
-                            coinPoints: points,
-                            coinName: coins,
-                        }
-                        $.post("/api/coins", coinObject, function (response) {
-                        console.log(response);
+                        // var coinObject = {
+                        //     coinFrame: tFrame,
+                        //     coinPoints: points,
+                        //     coinName: coins,
+                        // }
+                        $.post("/api/coins", points, function(response) {
+                        // console.log(response);
                         });
                     })
                 }
-                    pullCandleClose();
+      pullCandleClose();
     </script>
-
 </head>
-
 <body>
     <a href='/index'>Go To Index</a>
 </body>
@@ -68,7 +62,7 @@
             Bodies = Matter.Bodies;
             Vector = Matter.Vector;
             Vertices = Matter.Vertices;
-            
+
         // create an engine
         var engine = Engine.create();
         // create a renderer
@@ -76,7 +70,6 @@
             element: document.body,
             engine: engine
         });
-        // var path = "10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0";
         // path = path.split(" ");
         // for (var i = 0; i < path.length; i++) {
         //     path[i] = parseInt(path[i]);
