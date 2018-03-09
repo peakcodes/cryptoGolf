@@ -104,7 +104,7 @@ var maxValue = Math.max(...chartPoints);
 
 for (var i = 0; i < chartPoints.length-1; i++) {
     var x = (i + (i + 1))/2 * WORLDWIDTH/chartPoints.length;    //scale plot to span the length of the world
-    var y = WORLDHEIGHT - ((chartPoints[i] + chartPoints[i+1])/2 * (SCALING/maxValue)); //scaling to fit area and flip data upside down to follow coordinates
+    var y = WORLDHEIGHT+100 - ((chartPoints[i] + chartPoints[i+1])/2 * (SCALING/maxValue)); //scaling to fit area and flip data upside down to follow coordinates
 
     var adjacent = 1 * WORLDWIDTH/chartPoints.length;
     var opposite = (chartPoints[i+1] - chartPoints[i]) * (SCALING/maxValue);
