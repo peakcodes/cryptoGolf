@@ -72,14 +72,24 @@ const golf = async () => {
 	let path = await pullCandleClose();
 
 	//TODO FIX MIN AND MAX VALUES
-	let minValue = Math.min(path);
-	console.log(minValue);
-	// console.log(path);
+	// let minValue = Math.min(path);
 	// console.log(minValue);
-	// for (var i = 0; i < path.length; i++) {
-	//   path[i] = path[i] - minValue;
-	// }
-	let maxValue = Math.max(path[0]);
+	// // console.log(path);
+	// // console.log(minValue);
+	// // for (var i = 0; i < path.length; i++) {
+	// //   path[i] = path[i] - minValue;
+	// // }
+	// let maxValue = Math.max(path[0]);
+
+	// change the range of data to the difference between the highest and lowest point
+var minValue = Math.min(...path);
+console.log(minValue);
+for (var i = 0; i < path.length; i++) {
+    path[i] = path[i] - minValue;
+}
+console.log(path);
+
+// create an array of lines to simulate a data chart as a golf course and some padding under chart so ball won't slide through
 	var lines = [];
 	var paddingLines = [];
 
