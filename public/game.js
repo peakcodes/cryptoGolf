@@ -68,12 +68,13 @@ const golf = async () => {
 
 	const pullCandleClose = async () => {
 
-		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1M:t"+coin+"/hist";
+		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1D:t"+coin+"/hist";
 		let response = await fetch(queryURL);
 		let graphData = await response.json();
+		console.log(queryURL);
 
 		for (let i = 0; i < 30; i++) {
-			// points.push(Math.floor(graphData[i][2]));
+			points.push(Math.floor(graphData[i][2]));
 		}
 		return points;
 	}
