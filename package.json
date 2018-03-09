@@ -1,4 +1,24 @@
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "node server.js"
+{
+  "name": "cryptogolf",
+  "version": "1.0.0",
+  "description": "This project represents a group effort to create a physics-based golf game, with a twist:<br>\r the terrain is generated based on the ups and downs of the cryptocurrency market.<br>",
+  "main": "server.js",
+  "dependencies": {
+    "bitfinex-api-node": "^2.0.0-beta",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "matter-js": "^0.14.1",
+    "npm": "^5.7.1"
   },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://dashboard.heroku.com/apps/guarded-fortress-57011"
+  },
+  "author": "",
+  "license": "ISC"
+}

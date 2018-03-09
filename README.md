@@ -23,7 +23,7 @@ Each project member spent time learning how to implement Matter.js.<br>
 Expertise on cryptocurrencies was provided by Tim Hill.<br>
 
 Our project is hosted through Github Pages at: https://xhandler.github.io/cryptoGolf/,<br>
-and through Heroku at: <br>
+and through Heroku at: https://guarded-fortress-57011.herokuapp.com/<br>
 
 # Contributors
 __Afolabi Akingbe__ - math MVP/genius; research, back-end;<br>
@@ -47,7 +47,7 @@ Then, a ball will generate for the user to hit.<br>
 From here, just aim for the hole, and swing away!<br>
 
 ## Notes
-Our initial project idea was to create a Rube Goldberg game;<br>
+Our initial project idea was gito create a Rube Goldberg game;<br>
 it became apparent that this wouldn't be viable within the timeframe we allotted ourselves.<br>
 
 To view our original work, please see: https://github.com/Xhandler/rubegoldberg<br>
