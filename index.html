@@ -3,19 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-  <script src="../game.js" charset="utf-8"></script>
+  <script src="./game.js" charset="utf-8"></script>
+  <!-- <script src="../node_modules/bitfinex-api-node/examples/ws2/candles.js"></script> -->
+  <!-- <script src="./matter-js/build/matter.js"></script> -->
+  <script src="./matter-js/build/matter.js"></script>
   <link rel="stylesheet" href="./style.css">
   <title></title>
 </head>
 
 <body>
-  <div class="ui">
+  <div id="ui" class="ui">
     <ul class="flex-container center">
       <li id="btc" class="flex-item">BTC</li>
       <li id="eth" class="flex-item">ETH</li>
       <li id="ltc" class="flex-item">LTC</li>
     </ul>
-    <a href="/golf" class="btn"><button id="startBtn">Start the Game!</button></a>
+    <button class="btn" id="startBtn">START</button>
   </div>
   <script type="text/javascript">
     getCoin();
