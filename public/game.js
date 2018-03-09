@@ -59,7 +59,7 @@ const golf = async () => {
 
 	const pullCandleClose = async () => {
 
-		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1M:tBTCUSD/hist";
+		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1D:tLTCUSD/hist";
 		let response = await fetch(queryURL);
 		let graphData = await response.json();
 
@@ -70,27 +70,30 @@ const golf = async () => {
 	}
 
 	let path = await pullCandleClose();
+	let chartPoints = path.reverse();
+	console.log(chartPoints);
+	console.log(path);
 
 	//TODO FIX MIN AND MAX VALUES
-	// let minValue = Math.min(path);
+	// let minValue = Math.min(chartPoints);
 	// console.log(minValue);
-	// // console.log(path);
+	// // console.log(chartPoints);
 	// // console.log(minValue);
-	// // for (var i = 0; i < path.length; i++) {
-	// //   path[i] = path[i] - minValue;
+	// // for (var i = 0; i < chartPoints.length; i++) {
+	// //   chartPoints[i] = chartPoints[i] - minValue;
 	// // }
-	// let maxValue = Math.max(path[0]);
+	// let maxValue = Math.max(chartPoints[0]);
 
 	// change the range of data to the difference between the highest and lowest point
-var minValue = Math.min(...path);
+var minValue = Math.min(...chartPoints);
 console.log(minValue);
-for (var i = 0; i < path.length; i++) {
-    path[i] = path[i] - minValue;
-}
-console.log(path);
+// for (var i = 0; i < chartPoints.length; i++) {
+//     chartPoints[i] = chartPoints[i] - minValue;
+// }
+console.log(chartPoints);
 
 // create an array of lines to simulate a data chart as a golf course and some padding under chart so ball won't slide through
-var maxValue = Math.max(...path);
+var maxValue = Math.max(...chartPoints);
 	var lines = [];
 	var paddingLines = [];
 
@@ -99,12 +102,12 @@ var maxValue = Math.max(...path);
 	// create an array of lines to simulate a data chart as a golf course and some padding under chart so ball won't slide through
 
 
-for (var i = 0; i < path.length-1; i++) {
-    var x = (i + (i + 1))/2 * WORLDWIDTH/path.length;    //scale plot to span the length of the world
-    var y = WORLDHEIGHT - ((path[i] + path[i+1])/2 * (SCALING/maxValue)); //scaling to fit area and flip data upside down to follow coordinates
+for (var i = 0; i < chartPoints.length-1; i++) {
+    var x = (i + (i + 1))/2 * WORLDWIDTH/chartPoints.length;    //scale plot to span the length of the world
+    var y = WORLDHEIGHT - ((chartPoints[i] + chartPoints[i+1])/2 * (SCALING/maxValue)); //scaling to fit area and flip data upside down to follow coordinates
 
-    var adjacent = 1 * WORLDWIDTH/path.length;
-    var opposite = (path[i+1] - path[i]) * (SCALING/maxValue);
+    var adjacent = 1 * WORLDWIDTH/chartPoints.length;
+    var opposite = (chartPoints[i+1] - chartPoints[i]) * (SCALING/maxValue);
     var angle = Math.atan(opposite / adjacent);
     
     var line = Bodies.rectangle(x, y, Math.sqrt(opposite**2 + adjacent**2), 1, { isStatic: true, angle: -angle }); // negative angle to compensate for flipped data
@@ -120,11 +123,11 @@ console.log(lines);
 var maxBegin = WORLDHEIGHT;
 var maxEnd = WORLDHEIGHT;
 for (var i = 0; i < 5; i++) {
-    if (maxBegin > WORLDHEIGHT - path[i]*SCALING/maxValue){
-        maxBegin = WORLDHEIGHT - path[i]*SCALING/maxValue;
+    if (maxBegin > WORLDHEIGHT - chartPoints[i]*SCALING/maxValue){
+        maxBegin = WORLDHEIGHT - chartPoints[i]*SCALING/maxValue;
     }
-    if (maxEnd > WORLDHEIGHT - path[path.length - i - 1]*SCALING/maxValue){
-        maxEnd = WORLDHEIGHT - path[path.length - i - 1]*SCALING/maxValue;
+    if (maxEnd > WORLDHEIGHT - chartPoints[chartPoints.length - i - 1]*SCALING/maxValue){
+        maxEnd = WORLDHEIGHT - chartPoints[chartPoints.length - i - 1]*SCALING/maxValue;
     }
 }
 
