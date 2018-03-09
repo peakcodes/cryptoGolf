@@ -22,6 +22,11 @@ const getCoin = () => {
 
 
 const golf = async () => {
+	
+	// constants
+    const WORLDWIDTH = 1200;     // Width of the rendered world (800 is default)
+    const WORLDHEIGHT = 600;    // Height of the rendered world (600 is default)
+    const SCALING = 400;        // Setting the max height of the data
 
 	// module aliases
 	const Engine = Matter.Engine,
@@ -44,7 +49,11 @@ const golf = async () => {
 		width: 1200,
 		height: 800,
 		element: document.body,
-		engine: engine
+		engine: engine,
+		options: { 
+			width: WORLDWIDTH,
+			height: WORLDHEIGHT
+		}
 	});
 
 	const pullCandleClose = async () => {
@@ -63,40 +72,118 @@ const golf = async () => {
 	let path = await pullCandleClose();
 
 	//TODO FIX MIN AND MAX VALUES
-	let minValue = Math.min(path);
-	console.log(minValue);
-	// console.log(path);
+	// let minValue = Math.min(path);
 	// console.log(minValue);
-	// for (var i = 0; i < path.length; i++) {
-	//   path[i] = path[i] - minValue;
-	// }
-	let maxValue = Math.max(path[0]);
+	// // console.log(path);
+	// // console.log(minValue);
+	// // for (var i = 0; i < path.length; i++) {
+	// //   path[i] = path[i] - minValue;
+	// // }
+	// let maxValue = Math.max(path[0]);
+
+	// change the range of data to the difference between the highest and lowest point
+var minValue = Math.min(...path);
+console.log(minValue);
+for (var i = 0; i < path.length; i++) {
+    path[i] = path[i] - minValue;
+}
+console.log(path);
+
+// create an array of lines to simulate a data chart as a golf course and some padding under chart so ball won't slide through
 	var lines = [];
+	var paddingLines = [];
 
 	// Terrain
 	//REVIEW WILL RENDER
-	for (let i = 0; i < path.length - 1; i++) {
-		let x = (i + (i + 1)) / 2 * 30; //*5 only used to span graph
-		let y = 600 - ((path[i] + path[i + 1]) / 2 * (350 / maxValue)); //scaling to fit area
-		// console.log(y);
-		let adjacent = 1 * 30;
-		let opposite = (path[i + 1] - path[i]) * (350 / maxValue);
-		let angle = Math.atan(opposite / adjacent);
-		// console.log(angle);
-		let line = Bodies.rectangle(x, y, Math.sqrt(opposite ** 2 + adjacent ** 2), 1, {
-			isStatic: true,
-			angle: -angle
-		});
-		// World.add(engine.world, line);
-		lines.push(line);
-	}
+	// create an array of lines to simulate a data chart as a golf course and some padding under chart so ball won't slide through
 
 
-	let ball = Bodies.circle(40, 20, 30);
-	World.add(engine.world, lines);
-	World.add(engine.world, ball);
-	// run the engine
-	Engine.run(engine);
-	// run the renderer
-	Render.run(render);
-};
+for (var i = 0; i < path.length-1; i++) {
+    var x = (i + (i + 1))/2 * WORLDWIDTH/path.length;    //scale plot to span the length of the world
+    var y = WORLDHEIGHT - ((path[i] + path[i+1])/2 * (SCALING/maxValue)); //scaling to fit area and flip data upside down to follow coordinates
+
+    var adjacent = 1 * WORLDWIDTH/path.length;
+    var opposite = (path[i+1] - path[i]) * (SCALING/maxValue);
+    var angle = Math.atan(opposite / adjacent);
+    
+    var line = Bodies.rectangle(x, y, Math.sqrt(opposite**2 + adjacent**2), 1, { isStatic: true, angle: -angle }); // negative angle to compensate for flipped data
+    var invisibleLine = Bodies.rectangle(x, y+5, Math.sqrt(opposite**2 + adjacent**2), 10, { isStatic: true, angle: -angle, render: {visible: false}});
+    lines.push(line);
+    paddingLines.push(invisibleLine);
+}
+World.add(engine.world, lines);
+World.add(engine.world, paddingLines);
+console.log(lines);
+
+// find highest points of beginning and end of data
+var maxBegin = WORLDHEIGHT;
+var maxEnd = WORLDHEIGHT;
+for (var i = 0; i < 5; i++) {
+    if (maxBegin > WORLDHEIGHT - path[i]*SCALING/maxValue){
+        maxBegin = WORLDHEIGHT - path[i]*SCALING/maxValue;
+    }
+    if (maxEnd > WORLDHEIGHT - path[path.length - i - 1]*SCALING/maxValue){
+        maxEnd = WORLDHEIGHT - path[path.length - i - 1]*SCALING/maxValue;
+    }
+}
+
+// create the golf ball slingshot
+var golfBallSize = 7;
+var golfBall = Bodies.circle(100, maxBegin - 100, golfBallSize);
+var slingshot = Constraint.create({
+    pointA: {x: 100, y: maxBegin - 100},
+    bodyB: golfBall,
+    stiffness: 0.05
+})
+
+var score = 0;
+Events.on(engine, "afterUpdate", function() {
+    if (mConstraint.mouse.button === -1 && (Math.abs(golfBall.position.x - slingshot.pointA.x) > 20 || Math.abs(golfBall.position.y - slingshot.pointA.y) > 20)) {
+        golfBall = Bodies.circle(100, maxBegin - 100, golfBallSize);
+        World.add(engine.world, golfBall);
+        slingshot.bodyB = golfBall;
+        score += 1;
+    }
+})
+
+// create sensor hole
+var winner = false;
+var holeSize = 50;
+var halfHoleSize = holeSize/2;
+var sensorHole = Bodies.rectangle((WORLDWIDTH-100), maxEnd-25, holeSize, 5, {isStatic: true});
+var sensorWall1 = Bodies.rectangle((WORLDWIDTH-100)-halfHoleSize-halfHoleSize*Math.sin(Math.PI/4), maxEnd-25-halfHoleSize*Math.sin(Math.PI/4), 5, holeSize, {isStatic: true, angle: -Math.PI/4});
+var sensorWall2 = Bodies.rectangle((WORLDWIDTH-100)+halfHoleSize+halfHoleSize*Math.sin(Math.PI/4), maxEnd-25-halfHoleSize*Math.sin(Math.PI/4), 5, holeSize, {isStatic: true, angle: Math.PI/4});
+
+// create padding for hole
+var paddingHole = Bodies.rectangle((WORLDWIDTH-100), maxEnd-25+7.5, holeSize, 10, {isStatic: true, render: {visible: false}});
+var paddingWall1 = Bodies.rectangle((WORLDWIDTH-100)-halfHoleSize-halfHoleSize*Math.sin(Math.PI/4), maxEnd-25-halfHoleSize*Math.sin(Math.PI/4)+7.5, 10, holeSize, {isStatic: true, angle: -Math.PI/4, render: {visible: false}});
+var paddingWall2 = Bodies.rectangle((WORLDWIDTH-100)+halfHoleSize+halfHoleSize*Math.sin(Math.PI/4), maxEnd-25-halfHoleSize*Math.sin(Math.PI/4)+7.5, 10, holeSize, {isStatic: true, angle: Math.PI/4, render: {visible: false}});
+
+Events.on(engine, "collisionStart", function(event) {
+    var pairs = event.pairs;
+    for (i = 0; i < pairs.length; i++) {
+        var pair = pairs[i];
+        if ((pair.bodyA === sensorHole || pair.bodyB === sensorHole) && winner == false) {
+            alert("You Win! Score: " + score);
+            winner = true;
+        }
+    }
+})
+
+// create a mouse constraint
+var mouse = Mouse.create(render.canvas)
+var options = {mouse: mouse};
+var mConstraint = MouseConstraint.create(engine, options);
+
+World.add(engine.world, [golfBall, slingshot, sensorHole, sensorWall1, sensorWall2]);
+World.add(engine.world, [paddingHole, paddingWall1, paddingWall2]);
+World.add(engine.world, mConstraint);
+
+
+
+// run the engine
+Engine.run(engine);
+
+// run the renderer
+Render.run(render);
+}
