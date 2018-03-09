@@ -1,14 +1,3 @@
-/* code below = to set up a gradiant */
-
-/* to use: MUST name a <div> gradiant, or change gradiant below */
-
-/* this <div> must encompass the entire screen, or the area we desire a gradiant in */
-
-/* obviously, this can be added as <style> within the HTML file... */
-
-/* ...or this file must be referenced within said HTML file */
-
-/* lil bit of fake news **** */
 
 canvas {
   display: block;
@@ -19,24 +8,50 @@ body {
   background: radial-gradient(#C6C3C3, #434241, #0B0B0B);
 }
 
+.btn {
+  margin-left: 400px;
+  justify-content: center;
+  background-color: red;
+}
+
+#startBtn {
+  display: inline-block;
+  margin-top: 500px;
+  height: 75px;
+  width: 400px;
+}
+
 .ui {
   height: 800px;
   width: 1200px;
-  display: block;
   margin: 0 auto;
   background-color: blue;
 }
 
-.cryptoBtn {
-  display: table;
-  margin: 0 auto;
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
 }
-#eth{
-  
-}
-#btc{
 
+.center {
+  justify-content: center;
 }
-#ltc{
 
+.center li {
+  background: deepskyblue;
+}
+
+.flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 60px;
+  height: 50px;
+  margin: 5px;
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
 }
