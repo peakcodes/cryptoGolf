@@ -24,7 +24,7 @@ const getCoin = () => {
 }
 
 const golf = async () => {
-	
+
 	// constants
     const WORLDWIDTH = 1200;     // Width of the rendered world (800 is default)
     const WORLDHEIGHT = 600;    // Height of the rendered world (600 is default)
@@ -51,7 +51,7 @@ const golf = async () => {
 	const render = Render.create({
 		element: document.body,
 		engine: engine,
-		options: { 
+		options: {
 			width: WORLDWIDTH,
 			height: WORLDHEIGHT
 		}
@@ -59,12 +59,12 @@ const golf = async () => {
 
 	const pullCandleClose = async () => {
 
-		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1M:tBTCUSD/hist";
+		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1M:t"+coin+"/hist";
 		let response = await fetch(queryURL);
 		let graphData = await response.json();
 
 		for (let i = 0; i < 30; i++) {
-			points.push(Math.floor(graphData[i][2]));
+			// points.push(Math.floor(graphData[i][2]));
 		}
 		return points;
 	}
@@ -106,7 +106,7 @@ for (var i = 0; i < path.length-1; i++) {
     var adjacent = 1 * WORLDWIDTH/path.length;
     var opposite = (path[i+1] - path[i]) * (SCALING/maxValue);
     var angle = Math.atan(opposite / adjacent);
-    
+
     var line = Bodies.rectangle(x, y, Math.sqrt(opposite**2 + adjacent**2), 1, { isStatic: true, angle: -angle }); // negative angle to compensate for flipped data
     var invisibleLine = Bodies.rectangle(x, y+5, Math.sqrt(opposite**2 + adjacent**2), 10, { isStatic: true, angle: -angle, render: {visible: false}});
     lines.push(line);
