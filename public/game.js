@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 const coins = ["BTCUSD", "LTCUSD", "ETHUSD", "XMRUSD", "LTCBTC", "ETHBTC", "XMRBTC"];
 const tFrame = ["1m", "1h", "1D"];
@@ -7,19 +7,21 @@ let points = [];
 
 const getCoin = () => {
 	document.getElementById("btc").addEventListener("click", () => {
-		coin = coins[0];
-		console.log(coin);
+		return coin = coins[0];
 	});
 	document.getElementById("ltc").addEventListener("click", () => {
-		coin = coins[1];
-		console.log(coin);
+		return coin = coins[1];
 	});
 	document.getElementById("eth").addEventListener("click", () => {
-		coin = coins[2];
-		console.log(coin);
+		return coin = coins[2];
+	});
+	document.getElementById("startBtn").addEventListener("click", () => {
+		let ui = document.getElementById("ui");
+		ui.style.display = "none";
+		golf();
+
 	});
 }
-
 
 const golf = async () => {
 
@@ -50,7 +52,6 @@ const golf = async () => {
 	const pullCandleClose = async () => {
 
 		let queryURL = "https://api.bitfinex.com/v2/candles/trade:1M:tBTCUSD/hist";
-		let coin = '';
 		let response = await fetch(queryURL);
 		let graphData = await response.json();
 

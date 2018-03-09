@@ -8,7 +8,7 @@ module.exports = function(app){
     });
     // get request handler for /game - serves up index.html from the public directory
     app.get('/golf', function(req, res){
-        res.sendFile(path.join(__dirname, '/../public/golftest.html'))
+        res.sendFile(path.join(__dirname, '/../public/game.html'))
     })
     app.get('/index', function(req, res){
         res.sendFile(path.join(__dirname, '/index.html'))
