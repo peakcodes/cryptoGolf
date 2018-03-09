@@ -1,4 +1,4 @@
-var points = require('../data/points.js');
+// var points = require('../data/points.js');
 
 module.exports = function(app) {
 

@@ -16,7 +16,7 @@
 
   <script>
   </script>
-  <script src="../data/points.js"></script>
+  <!-- <script src="../data/points.js"></script> -->
 </head>
 
 <body>
@@ -47,6 +47,7 @@
     });
     var coins = ["BTC/USD", "LTC/USD", "ETH/USD", "XMR/USD", "LTC/BTC", "ETH/BTC", "XMR/BTC"];
     var tFrame = ["1m", "1h", "1D"];
+    var points = [];
     async function pullCandleClose() {
       var queryURL = "https://api.bitfinex.com/v2/candles/trade:1D:tBTCUSD/hist";
       var points = [];
@@ -55,62 +56,23 @@
       // console.log(response);
       var htmlString = await response.json();
       // console.log(htmlString);
-      // $.ajax({
-      //   url: queryURL,
-      //   method: "GET"
-      // }).then(function
-      //   return (response) {
-      //     // $("#coin-data").text(JSON.stringify(response));
+
           for (i = 0; i < 30; i++) {
             points.push(Math.floor(htmlString[i][2]));
+            console.log(points[i]);
           }
           return points;
-      //
-      //     // $.post("/api/coins", points, function(response) {
-      //     //   // console.log(response);
-      //     // });
-      //   })
-    }
-    // var path = "10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0 10 20 30 20 25 15 80 40 10 0";
-    // path = path.split(" ");
-    // for (var i = 0; i < path.length; i++) {
-    //     path[i] = parseInt(path[i]);
-    // }
+        }
 
-    //   10908,
-    //   10315,
-    //   10582,
-    //   10320,
-    //   9583,
-    //   9666.3,
-    //   10144,
-    //   9826.5,
-    //   10450,
-    //   11211,
-    //   11172,
-    //   10400,
-    //   11062,
-    //   10162,
-    //   9996,
-    //   9455.5,
-    //   8511.6,
-    //   8902.9,
-    //   8069.3,
-    //   8563,
-    //   8678.1,
-    //   8239.7,
-    //   7586.9,
-    //   7678.8,
-    //   6946.6
-    // ]
+    // console.log(await pullCandleClose);
     var path = await pullCandleClose();
-    var minValue = Math.min(path);
-    // console.log(minValue);
-    for (var i = 0; i < path.length; i++) {
-      path[i] = path[i] - minValue;
-    }
     // console.log(path);
-    var maxValue = Math.max(path);
+    var minValue = Math.min(path[0]);
+    // console.log(minValue);
+    // for (var i = 0; i < path.length; i++) {
+    //   path[i] = path[i] - minValue;
+    // }
+    var maxValue = Math.max(path[0]);
     var lines = [];
     for (var i = 0; i < path.length - 1; i++) {
       var x = (i + (i + 1)) / 2 * 30; //*5 only used to span graph
@@ -127,12 +89,9 @@
       // World.add(engine.world, line);
       lines.push(line);
     }
+
     World.add(engine.world, lines);
-    // console.log(lines);
-    // var terrain = Vertices.fromPath(path);
-    // console.log(terrain);
-    // var course = Bodies.fromVertices(400, 200, terrain, {isStatic: true});
-    // var boxA = Bodies.rectangle(200, 200, 80, 80, {isStatic: true});
+
     var trap = Bodies.trapezoid(180, 10, 80, 80, 1)
     // console.log(course);
     // console.log("this");
