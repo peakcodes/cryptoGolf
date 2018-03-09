@@ -18,13 +18,15 @@ const golf = async () => {
 
 	// create an engine
 	const engine = Engine.create();
-	// create a renderer
+	// THIS RENDERS OUR CANVAS
 	const render = Render.create({
+		width: 1200,
+		height: 800,
 		element: document.body,
 		engine: engine
 	});
 
-	const coins = ["BTC/USD", "LTC/USD", "ETH/USD", "XMR/USD", "LTC/BTC", "ETH/BTC", "XMR/BTC"];
+	const coins = ["BTCUSD", "LTCUSD", "ETHUSD", "XMRUSD", "LTCBTC", "ETHBTC", "XMRBTC"];
 	const tFrame = ["1m", "1h", "1D"];
 	let points = [];
 
@@ -43,9 +45,9 @@ const golf = async () => {
 
 	let path = await pullCandleClose();
 
-  //TODO FIX MIN AND MAX VALUES
+	//TODO FIX MIN AND MAX VALUES
 	let minValue = Math.min(path);
-  // console.log(path);
+	// console.log(path);
 	// console.log(minValue);
 	// for (var i = 0; i < path.length; i++) {
 	//   path[i] = path[i] - minValue;
@@ -53,11 +55,11 @@ const golf = async () => {
 	let maxValue = Math.max(path[0]);
 	var lines = [];
 
-// Terrain
-//REVIEW WILL RENDE
+	// Terrain
+	//REVIEW WILL RENDER
 	for (let i = 0; i < path.length - 1; i++) {
 		let x = (i + (i + 1)) / 2 * 30; //*5 only used to span graph
-		let y = 750 - ((path[i] + path[i + 1]) / 2 * (350 / maxValue)); //scaling to fit area
+		let y = 600 - ((path[i] + path[i + 1]) / 2 * (350 / maxValue)); //scaling to fit area
 		// console.log(y);
 		let adjacent = 1 * 30;
 		let opposite = (path[i + 1] - path[i]) * (350 / maxValue);
@@ -75,7 +77,7 @@ const golf = async () => {
 	let ball = Bodies.circle(40, 20, 30);
 	// console.log(course);
 	// console.log("this");
-  World.add(engine.world, lines);
+	World.add(engine.world, lines);
 	World.add(engine.world, ball);
 	// run the engine
 	Engine.run(engine);

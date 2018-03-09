@@ -1,10 +1,42 @@
 /* code below = to set up a gradiant */
+
 /* to use: MUST name a <div> gradiant, or change gradiant below */
+
 /* this <div> must encompass the entire screen, or the area we desire a gradiant in */
+
 /* obviously, this can be added as <style> within the HTML file... */
+
 /* ...or this file must be referenced within said HTML file */
-#gradiant {
-    height: 750px;
-    width: 500px;
-    background: radial-gradient(#C6C3C3, #434241, #0B0B0B);
+
+/* lil bit of fake news **** */
+
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+body {
+  background: radial-gradient(#C6C3C3, #434241, #0B0B0B);
+}
+
+.ui {
+  height: 800px;
+  width: 1200px;
+  display: block;
+  margin: 0 auto;
+  background-color: blue;
+}
+
+.cryptoBtn {
+  display: table;
+  margin: 0 auto;
+}
+#eth{
+  
+}
+#btc{
+
+}
+#ltc{
+
 }
