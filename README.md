@@ -47,7 +47,7 @@ Then, a ball will generate for the user to hit.<br>
 From here, just aim for the hole, and swing away!<br>
 
 ## Notes
-Our initial project idea was to create a Rube Goldberg game;<br>
+Our initial project idea was gito create a Rube Goldberg game;<br>
 it became apparent that this wouldn't be viable within the timeframe we allotted ourselves.<br>
 
 To view our original work, please see: https://github.com/Xhandler/rubegoldberg<br>
