@@ -1,4 +1,6 @@
-
+*{
+  font-size: 12px;
+}
 canvas {
   display: block;
   margin: 0 auto;
