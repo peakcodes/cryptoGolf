@@ -90,6 +90,7 @@ for (var i = 0; i < path.length; i++) {
 console.log(path);
 
 // create an array of lines to simulate a data chart as a golf course and some padding under chart so ball won't slide through
+var maxValue = Math.max(...path);
 	var lines = [];
 	var paddingLines = [];
 
