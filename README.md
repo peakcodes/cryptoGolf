@@ -12,8 +12,6 @@ We primarily utilized Javascript with Node, JQuery, Matter.js, and Express.js.<b
 HTML and CSS were deliberately de-emphasized to allow us to generate our images, shapes, etc. with Javascript.<br>
 This is reflected in contributors' roles all including "back-end" work.<br>
 Bitfinex's API was utilized to provide our cryptocurrency exchange data, with which we generated our terrain.<br>
-Heroku was also utilized for the first time by group members, as previous projects were hosted solely on Github Pages.<br>
-Significant time was devoted to learning Matter.js.<br>
 
 Internally, we needed to generate a basic world and physics-based parameters for our game.<br>
 Objects such as a golf ball were created and assigned values to allow their proper interaction.<br>
@@ -23,7 +21,7 @@ Each project member spent time learning how to implement Matter.js.<br>
 Expertise on cryptocurrencies was provided by Tim Hill.<br>
 
 Our project is hosted through Github Pages at: https://xhandler.github.io/cryptoGolf/,<br>
-and through Heroku at: https://guarded-fortress-57011.herokuapp.com/<br>
+and through Heroku at: https://crypto-golf.herokuapp.com/<br>
 
 # Contributors
 __Afolabi Akingbe__ - math MVP/genius; research, back-end;<br>
